@@ -1,7 +1,7 @@
 export default class ToDoList {
   constructor() {
-    this.id = "";
-    this.description = "";
+    this.id = '';
+    this.description = '';
     this.completed = false;
   }
 
@@ -12,9 +12,9 @@ export default class ToDoList {
 
   static addTask(newTask) {
     const taskList = ToDoList.getAllTask();
-    const tasks = document.querySelector('.taskList')
+    const tasks = document.querySelector('.taskList');
 
-    newTask.id = taskList.length + 1 || 1
+    newTask.id = taskList.length + 1 || 1;
     taskList.push(newTask);
     localStorage.setItem('taskList', JSON.stringify(taskList));
 
@@ -24,23 +24,20 @@ export default class ToDoList {
         <p>${newTask.description}</p>
         <i class="fa-solid fa-ellipsis-vertical"></i>
     `;
-    tasks.prepend(li)
+    tasks.prepend(li);
   }
-
 
   static displayTaskList() {
     const taskList = ToDoList.getAllTask();
-    taskList.sort((a,b) =>{ return b.id - a.id })
-            .forEach(task => {
-      const li = document.createElement('li');
-      li.innerHTML = `
+    taskList.sort((a, b) => b.id - a.id)
+      .forEach((task) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
           <input class="checkbox" type="checkbox">
           <p>${task.description}</p>
           <i class="fa-solid fa-ellipsis-vertical"></i>
       `;
-      document.querySelector('.taskList').appendChild(li);
-    })
+        document.querySelector('.taskList').appendChild(li);
+      });
   }
-
-
 }
