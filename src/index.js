@@ -1,14 +1,15 @@
-import _ from 'lodash';
 import './style.css';
+import ToDoList from './toDoList.js';
 
+ToDoList.displayTaskList();
 
-function component() {
-  const element = document.createElement('div');
+const addToDo = document.querySelector('.addToDo');
+const form = document.querySelector('form');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['from lodash', 'webpack'], ' ');
-  element.classList.add('hello');
-  return element;
-}
-
-document.body.appendChild(component());
+form.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    ToDoList.addTask({ description: addToDo.value });
+    addToDo.value = '';
+  }
+});
