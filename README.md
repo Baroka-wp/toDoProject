@@ -62,13 +62,10 @@ npx eslint ."
 ```
 ### Run local server
 [Node live server](#)is easy to install and use:
-- Install globally via npm
+
+- Run webpack server
 ```
-  npm install -g live-server
-```
-- Run in the html's directory
-```
-  live-server
+  npm start
 ```
 
 ### Deployment
