@@ -3,6 +3,7 @@ import deleteTask from './deleteTask.js';
 import addTasktoDom from './addTasktoDom.js';
 import loadTaskList from './loadTaskList.js';
 import editTask from './editTask.js';
+import { toggleCompleted, clearAllComplete } from './toggleCompleted.js';
 
 loadTaskList();
 
@@ -34,9 +35,20 @@ document.addEventListener('click', (e) => {
     e.target.parentElement.classList.toggle('active');
     e.target.classList.toggle('active');
     e.target.addEventListener('input', (event) => {
-      let index = event.target.parentElement.classList[0];
-      index = parseInt(index, 10);
-      editTask(index, event);
+      editTask(event);
+    });
+  } else if (e.target.matches('.taskList input[type="checkbox"]')) {
+    e.target.addEventListener('change', (event) => {
+      toggleCompleted(event);
+      if (!e.target.checked) {
+        e.target.parentElement.classList.remove('checked');
+      } else {
+        e.target.parentElement.classList.add('checked');
+      }
     });
   }
+});
+
+document.querySelector('.clearButton').addEventListener('click', () => {
+  clearAllComplete();
 });
