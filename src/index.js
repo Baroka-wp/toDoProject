@@ -1,18 +1,18 @@
 import './style.css';
-import ToDoList from './ToDoList.js';
+import deleteTask from './deleteTask.js';
+import addTasktoDom from './addTasktoDom.js';
+import loadTaskList from './loadTaskList.js';
 
-ToDoList.displayTaskList();
+loadTaskList();
 
-const list = new ToDoList();
 const addToDo = document.querySelector('.addToDo');
 const form = document.querySelector('form');
 const taskList = document.querySelectorAll('.taskList li p');
-// const grabIcone = document.querySelector('.fa-ellipsis-vertical')
 
 form.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
-    ToDoList.addTask({ description: addToDo.value });
+    addTasktoDom({ description: addToDo.value });
     addToDo.value = '';
   }
 });
@@ -22,14 +22,15 @@ taskList.forEach((task) => {
     const element = e.target.parentElement.querySelector('i');
     element.classList.toggle('fa-trash-can');
     element.classList.toggle('fa-ellipsis-vertical');
-    task.classList.toggle('active');
-
-    document.querySelector('.fa-trash-can')
-      .addEventListener('click', (e) => {
-        const index = e.target.parentElement.classList[0];
-        const id = parseInt(index);
-        ToDoList.deleteTask(id);
-        e.target.parentElement.remove();
-      });
+    e.target.parentElement.classList.toggle('active');
   });
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.fa-trash-can')) {
+    const index = e.target.parentElement.classList[0];
+    const id = parseInt(index, 10);
+    deleteTask(id);
+    e.target.parentElement.remove();
+  }
 });
