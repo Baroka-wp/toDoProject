@@ -11,6 +11,10 @@ const createLi = (obj) => {
   li.classList.add(obj.id);
   li.append(checkbox, description, i);
   document.querySelector('.taskList').prepend(li);
+  if (obj.completed) {
+    checkbox.checked = true;
+    li.classList.add('checked');
+  }
 };
 
 export default createLi;

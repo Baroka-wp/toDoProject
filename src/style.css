@@ -53,6 +53,10 @@ a {
   height: 40px;
 }
 
+.container li.checked {
+  text-decoration: line-through;
+}
+
 .taskList input[type="text"].active,
 .container li.active {
   background: #dfda82;
