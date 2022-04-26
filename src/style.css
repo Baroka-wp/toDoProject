@@ -129,8 +129,8 @@ a {
 }
 
 .taskList input[type="text"] {
-  background: bisque;
   outline: none;
+  background: bisque;
   border: none;
   width: 80%;
   padding: 10px;
