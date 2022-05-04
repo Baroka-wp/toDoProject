@@ -9,7 +9,7 @@ const reorder = (obj) => {
     }
     count += 1;
   });
-  return obj
+  return obj;
 };
 
 export default reorder;

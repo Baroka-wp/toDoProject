@@ -17,11 +17,10 @@ form.addEventListener('keypress', (e) => {
       addToDo.setCustomValidity('Please add task description.');
     } else {
       e.preventDefault();
-      const tasklist = getItems()
-      console.log(tasklist)
+      const tasklist = getItems();
       const newlist = addTasktoDom(tasklist, { description: addToDo.value });
       addToDo.value = '';
-      setItems(newlist)
+      setItems(newlist);
     }
   }
 });
@@ -30,10 +29,9 @@ document.addEventListener('click', (e) => {
   if (e.target.matches('.fa-trash-can')) {
     let index = e.target.parentElement.classList[0];
     index = parseInt(index, 10);
-    console.log(index)
-    const tasklist = getItems()
-    const newTasklist = deleteTask(tasklist,index);
-    setItems(newTasklist)
+    const tasklist = getItems();
+    const newTasklist = deleteTask(tasklist, index);
+    setItems(newTasklist);
     window.location.reload();
   } else if (e.target.matches('.taskList input[type="text"]')) {
     const element = e.target.parentElement.querySelector('i');
