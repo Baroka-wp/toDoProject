@@ -1,9 +1,10 @@
 import './style.css';
-import deleteTask from './deleteTask.js';
-import addTasktoDom from './addTasktoDom.js';
-import loadTaskList from './loadTaskList.js';
-import editTask from './editTask.js';
-import { toggleCompleted, clearAllComplete } from './toggleCompleted.js';
+import deleteTask from './modules/deleteTask.js';
+import addTasktoDom from './modules/addTasktoDom.js';
+import loadTaskList from './modules/loadTaskList.js';
+import editTask from './modules/editTask.js';
+import { toggleCompleted, clearAllComplete } from './modules/toggleCompleted.js';
+import { setItems, getItems } from './modules/storage.js';
 
 loadTaskList();
 
@@ -16,8 +17,10 @@ form.addEventListener('keypress', (e) => {
       addToDo.setCustomValidity('Please add task description.');
     } else {
       e.preventDefault();
-      addTasktoDom({ description: addToDo.value });
+      const tasklist = getItems();
+      const newlist = addTasktoDom(tasklist, { description: addToDo.value });
       addToDo.value = '';
+      setItems(newlist);
     }
   }
 });
@@ -26,8 +29,10 @@ document.addEventListener('click', (e) => {
   if (e.target.matches('.fa-trash-can')) {
     let index = e.target.parentElement.classList[0];
     index = parseInt(index, 10);
-    deleteTask(index);
-    e.target.parentElement.remove();
+    const tasklist = getItems();
+    const newTasklist = deleteTask(tasklist, index);
+    setItems(newTasklist);
+    window.location.reload();
   } else if (e.target.matches('.taskList input[type="text"]')) {
     const element = e.target.parentElement.querySelector('i');
     element.classList.toggle('fa-trash-can');

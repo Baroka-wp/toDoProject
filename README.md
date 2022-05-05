@@ -39,6 +39,20 @@
 - Twitter: [@twitterhandle](#)
 - LinkedIn: [LinkedIn](#)
 
+👥 **Co Author :**
+
+- GitHub: [@githubhandle](#)
+- Twitter: [@twitterhandle](#)
+- LinkedIn: [LinkedIn](#)
+
+## Collaborators
+
+👤 **David Ger**
+
+- GitHub: [@ger619](https://github.com/ger619)
+- Twitter: [@abol_ger](https://twitter.com/ger_abol)
+- LinkedIn: [David Ger](https://www.linkedin.com/in/david-ger-426b4576/)
+
 ## Install
 
 ### Run Linters tests

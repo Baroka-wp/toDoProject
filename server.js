@@ -19,5 +19,5 @@ app.use(
 
 // Serve the files on port 3000.
 app.listen(8080, () => {
-  console.log('Listening on port 8080!\n');
+  // console.log('Listening on port 8080!\n');
 });
