@@ -1,4 +1,5 @@
 import addTask from '../modules/addTask.js';
+
 const taskList = [{ id: 1, description: 'My old task', completed: false }];
 describe('Add new task to storage', () => {
   test('chech new task added properly in taskList', () => {
