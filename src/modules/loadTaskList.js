@@ -1,8 +1,6 @@
-import { getItems } from './storage.js';
-import createLi from './createElement.js';
+import createLi from './createLi.js';
 
-const loadTaskList = () => {
-  const taskList = getItems();
+const loadTaskList = (taskList) => {
   taskList.sort((a, b) => b.id - a.id)
     .forEach((task) => {
       createLi(task);
