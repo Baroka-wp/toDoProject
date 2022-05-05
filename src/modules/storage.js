@@ -1,10 +1,14 @@
-const setItems = (obj) => {
-  localStorage.setItem('taskList', JSON.stringify(obj));
-};
+export default class LocalStorage {
+  constructor() {
+    this.store = [];
+  }
 
-const getItems = () => {
-  const taskList = JSON.parse(localStorage.getItem('taskList') || '[]');
-  return taskList;
-};
+  setItems = (obj) => {
+    localStorage.setItem('taskList', JSON.stringify(obj));
+  };
 
-export { setItems, getItems };
+  getItems = () => {
+    this.store = JSON.parse(localStorage.getItem('taskList') || '[]');
+    return this.store;
+  };
+}
