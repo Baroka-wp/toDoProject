@@ -1,8 +1,8 @@
-const addTask = (taskList, obj) => {
-  obj.id = taskList.length + 1 || 1;
-  obj.completed = false;
-  taskList.push(obj);
-  return taskList;
+const addTask = (tasklist, newTask) => {
+  newTask.id = tasklist.length + 1 || 1;
+  newTask.completed = false;
+  tasklist.push(newTask);
+  return tasklist;
 };
 
 export default addTask;
