@@ -1,20 +1,21 @@
 import addTask from '../modules/addTask.js';
-const taskList = [{ id: 1, description: 'My old task', completed: false }];
+import LocalStorage from '../__mocks__/storage.js';
+
+const store = new LocalStorage();
+let taskList = store.getItems();
 const newTask = { description: 'My new task' };
 
 describe('Add new task to storage', () => {
+  taskList = addTask(taskList, newTask);
+
   test('chech new task added properly in taskList', () => {
-    addTask(taskList, newTask);
-    expect(taskList.pop().description).toBe('My new task');
+    expect(taskList[3].description).toBe('My new task');
   });
   test('check completed is false by default', () => {
-    addTask(taskList, newTask);
-    expect(taskList.pop().completed).toBe(false);
+    expect(taskList[3].completed).toBe(false);
   });
   test('check Id is order from 1', () => {
-    addTask(taskList, newTask);
-    addTask(taskList, newTask);
-    expect(taskList[2].id).toBe(3);
+    expect(taskList[3].id).toBe(4);
     expect(taskList[0].id).toBe(1);
   });
 });
