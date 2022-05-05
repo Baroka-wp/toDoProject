@@ -1,4 +1,4 @@
-import addTask from './addTask.js';
+import addTask from '../modules/addTask.js';
 
 const taskList = [{ id: 1, description: 'My old task', completed: false }];
 

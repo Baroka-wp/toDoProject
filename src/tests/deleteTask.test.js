@@ -1,5 +1,5 @@
-import deleteTask from './deleteTask.js';
-import addTask from './addTask.js';
+import deleteTask from '../modules/deleteTask.js';
+import addTask from '../modules/addTask.js';
 
 let taskList = [
   { id: 1, description: 'task 1', completed: false },
